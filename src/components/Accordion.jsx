@@ -9,8 +9,8 @@ const SectionCard = (props) => {
         <div className="bg-gray-700 text-green-500 p-4 rounded-md mb-4">
           <h2 className="text-2xl font-bold">{props.title}</h2>
         </div>
-        <AccordionItems title="arrays" content="" />
-        <AccordionItems title="strings" content="" />
+        <AccordionItems title="arrays" content="hey its an array" />
+        <AccordionItems title="strings" content="hey its a string" />
       </div>
     </div>
   );
