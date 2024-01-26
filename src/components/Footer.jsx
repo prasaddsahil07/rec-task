@@ -28,7 +28,7 @@ const Footer = () => {
             <p>Akshay A Baiju: +9194757584</p>
           </div>
         </div>
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-8">
           <a href="#" className="text-white hover:text-gray-300">
             <FaFacebook />
           </a>

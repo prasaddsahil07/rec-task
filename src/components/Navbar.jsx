@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Hamburger from 'hamburger-react';
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -10,7 +11,9 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-800 p-4">
       <div className="container mx-auto flex items-center justify-between relative">
-        <div className="text-white font-bold text-2xl "><strong className="text-3xl">REC</strong>ursion</div>
+        <div className="text-white font-bold text-2xl">
+          <strong className="text-3xl">REC</strong>ursion
+        </div>
         <div className="hidden md:flex items-center space-x-4 text-xl">
           <a
             href="#"
@@ -41,51 +44,43 @@ const Navbar = () => {
           <button
             type="button"
             onClick={toggleMenu}
-            className="text-white focus:outline-none"
+            className="text-white focus:outline-none relative z-10"
           >
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16m-7 6h7"
+            <div className="transition-all duration-300">
+              <Hamburger
+                toggled={isMenuOpen}
+                toggle={setMenuOpen}
+                size={24}
+                rounded
+                duration={0.3} // Adjust the duration as needed
+                color="white"
+                label="Show menu"
+                direction="left"
               />
-            </svg>
-          </button>
-          {isMenuOpen && (
-            <div className="absolute top-full left-0 right-0 bg-gray-800">
-              <a
-                href="#"
-                className="block text-white p-3 hover:bg-gray-700"
-              >
-                Interview Experience
-              </a>
-              <a
-                href="#"
-                className="block text-white p-3 hover:bg-gray-700"
-              >
-                Events
-              </a>
-              <a
-                href="#"
-                className="block text-white p-3 hover:bg-gray-700"
-              >
-                Getting Started
-              </a>
-              <a
-                href="#"
-                className="block text-white p-3 hover:bg-gray-700"
-              >
-                Meet The Team
-              </a>
             </div>
-          )}
+          </button>
+          <div
+            className={`absolute top-full left-0 right-0 bg-gray-800 overflow-hidden transition-all duration-300 ${
+              isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+            }`}
+          >
+            {isMenuOpen && (
+              <div>
+                <a href="#" className="block text-white p-3 hover:bg-gray-700">
+                  Interview Experience
+                </a>
+                <a href="#" className="block text-white p-3 hover:bg-gray-700">
+                  Events
+                </a>
+                <a href="#" className="block text-white p-3 hover:bg-gray-700">
+                  Getting Started
+                </a>
+                <a href="#" className="block text-white p-3 hover:bg-gray-700">
+                  Meet The Team
+                </a>
+              </div>
+            )}
+          </div>
         </div>
         <div className="hidden md:block">
           <button
