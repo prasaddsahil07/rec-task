@@ -52,7 +52,7 @@ const Navbar = () => {
                 toggle={setMenuOpen}
                 size={24}
                 rounded
-                duration={0.3} // Adjust the duration as needed
+                duration={0.3} 
                 color="white"
                 label="Show menu"
                 direction="left"
